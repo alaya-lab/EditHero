@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EditHero: Long-Horizon Part-Level 3D Editing</title>
+<meta name="description" content="EditHero is a benchmark of part-level 3D edit chains with an exact target after every turn. Methods are scored on their own previous output.">
+<meta property="og:title" content="EditHero: A Benchmark for Long-Horizon Part-Level 3D Editing and Vibe Modeling">
+<meta property="og:description" content="457 edit chains, 2,755 edits, an exact target after every turn, and a self-rollout evaluation of conventional methods and code-editing LLMs.">
+<meta property="og:image" content="assets/figures/teaser_art.jpg">
+<link rel="icon" href="assets/figures/alayalab-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/showcase.css">
+<link rel="stylesheet" href="assets/css/edithero.css">
+</head>
+<body>
+<div class="bg-fx"></div>
+<div class="bg-grid"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero"><span class="wm wm-nav"><img src="assets/images/edithero-wordmark.png" alt="" aria-hidden="true"><span class="wm-text">EditHero</span></span></a>
+    <div class="nav-links">
+      <a href="#trailer">Video</a>
+      <a href="#task">Benchmark</a>
+      <a href="#explorer">Chains</a>
+      <a href="#results">Leaderboard</a>
+      <a href="#bibtex">BibTeX</a>
+      <a class="nav-cta" href="#explorer">Explore chains</a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="wrap paper-header">
+    <h1 class="reveal"><span class="wm wm-hero"><img src="assets/images/edithero-wordmark.png" alt="" aria-hidden="true" width="1517" height="465"><span class="wm-text">EditHero</span></span><br>A Benchmark for Long-Horizon<br>Part-Level 3D Editing and Vibe Modeling</h1>
+    <div class="authors reveal"><span class="author"><a href="https://auroraryan0301.github.io/" target="_blank" rel="noopener">Ruihan Yu</a><sup>1,2*</sup></span><span class="author"><a href="https://liagm.github.io/" target="_blank" rel="noopener">Yu-Ju Tsai</a><sup>3,4*</sup></span><span class="author"><a href="https://myniuuu.github.io/" target="_blank" rel="noopener">Muyao Niu</a><sup>1,2</sup></span><span class="author"><a href="https://lirunyi2001.github.io/" target="_blank" rel="noopener">Runyi Li</a><sup>1,2</sup></span><span class="author"><a href="https://scholar.google.com/citations?user=CbWYuIEAAAAJ" target="_blank" rel="noopener">Lian Fu</a><sup>1,2</sup></span><span class="author"><a href="https://openreview.net/profile?id=%7ELiu_Hanqing3" target="_blank" rel="noopener">Hanqing Liu</a><sup>2</sup></span><span class="author"><a href="https://brian90709.github.io/" target="_blank" rel="noopener">Zheng-Hui Huang</a><sup>1</sup></span><span class="author"><a href="https://scholar.google.com/citations?user=lwuwuAYAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener">Yonghao Yu</a><sup>1</sup></span><span class="author"><a href="https://shokuno5.github.io/" target="_blank" rel="noopener">Sho Kuno</a><sup>1,2</sup></span><span class="author"><a href="https://faculty.ucmerced.edu/mhyang/" target="_blank" rel="noopener">Ming-Hsuan Yang</a><sup>4&dagger;</sup></span><span class="author"><a href="https://kpzhang93.github.io/" target="_blank" rel="noopener">Kaipeng Zhang</a><sup>1&dagger;</sup></span><span class="author"><a href="https://lightchaserx.github.io/" target="_blank" rel="noopener">Zhixiang Wang</a><sup>1&dagger;</sup></span></div>
+    <p class="affil reveal"><span><sup>1</sup> Alaya Lab</span><span><sup>2</sup> The University of Tokyo</span><span><sup>3</sup> Institute of Science Tokyo</span><span><sup>4</sup> University of California, Merced</span></p>
+    <p class="affil reveal"><span><sup>*</sup> Equal contribution</span><span><sup>&dagger;</sup> Corresponding authors</span></p>
+    <div class="btn-row reveal">
+      <a class="btn primary" href="assets/paper/EditHero.pdf" target="_blank" rel="noopener">Paper</a>
+      <a class="btn" href="https://github.com/AlayaLab/EditHero" target="_blank" rel="noopener">Code</a>
+      <button class="btn resource-soon" type="button" disabled>Hugging Face <small>· Coming soon</small></button>
+      <a class="btn" href="#trailer">Video</a>
+      <a class="btn" href="#bibtex">BibTeX</a>
+    </div>
+    <p class="paper-summary reveal"><b>Who edits 3D better?</b> EditHero puts conventional methods and LLMs that write code on the same long edit chains, with the right answer after every edit.</p>
+    <div class="dir-row reveal">
+      <div class="dir"><b>Top down</b><span>Conventional methods regenerate the whole object.</span></div>
+      <div class="dir"><b>Bottom up</b><span>Code agents change only the named part.</span></div>
+    </div>
+    <figure class="paper-teaser teaser-art reveal"><div class="tz"><img src="assets/figures/teaser_art.jpg" alt="A figurine edited over five turns: sunglasses added, cap removed, hair recoloured, outfit replaced and a witch hat added" width="3832" height="1642"><span class="tz-t" style="left:38.5%;bottom:92.4%">t<sub>0</sub></span><span class="tz-t" style="left:58.8%;bottom:92.6%">t<sub>1</sub></span><span class="tz-t" style="left:62.9%;bottom:74.1%">t<sub>2</sub></span><span class="tz-t" style="left:45.4%;bottom:66.4%">t<sub>3</sub></span><span class="tz-t" style="left:40.0%;bottom:47.7%">t<sub>4</sub></span><span class="tz-t" style="left:56.5%;bottom:44.9%">t<sub>5</sub></span><span class="tz-op" style="left:4.7%;bottom:73.3%">Add</span><span class="tz-op" style="left:22.4%;bottom:73.3%">Remove</span><span class="tz-op" style="left:4.4%;bottom:45.2%">Replace</span><span class="tz-op" style="left:22.9%;bottom:44.8%">Retexture</span></div></figure>
+  </div>
+</section>
+
+<section id="trailer">
+  <div class="wrap">
+    <div class="section-heading reveal"><div><div class="kicker">TRAILER</div><h2>Editing is a sequence</h2></div></div>
+    <div class="film-frame reveal"><video controls playsinline preload="none" poster="assets/images/edithero_mv_poster.jpg"><source src="assets/videos/edithero_mv.mp4" type="video/mp4">Your browser does not support this video. <a href="assets/videos/edithero_mv.mp4">Download the video</a>.</video></div>
+    <div class="film-caption"><span>TRAILER <i>&middot;</i> 120 SECONDS</span><p>Edit chains with an exact target after every turn, and what happens when editors keep editing their own output.</p></div>
+  </div>
+</section>
+
+<section id="task">
+  <div class="wrap">
+    <div class="kicker reveal">Benchmark</div>
+    <h2 class="reveal">Every turn has an <span class="grad-text">exact target</span></h2>
+    <p class="section-intro reveal">Library parts in, a JSON log out. The log rebuilds every state exactly. Every turn checked by a person.</p>
+    <div class="stat-row reveal">
+      <div class="stat"><b data-count="457">457</b><span>edit chains</span></div>
+      <div class="stat"><b data-count="2755">2,755</b><span>edits</span></div>
+      <div class="stat"><b data-count="252">252</b><span>host objects</span></div>
+      <div class="stat"><b data-count="30">30</b><span>turns at most</span></div>
+    </div>
+    <h3 class="sub-h reveal">Four kinds of edit</h3>
+    <div class="optypes reveal"><div class="optype"><span class="op op-add">add</span><div class="ba"><img loading="lazy" src="assets/bench/op_add_0_a.jpg" alt="before"><i>&rarr;</i><img loading="lazy" src="assets/bench/op_add_0_b.jpg" alt="after: Add half a boiled egg on top of the uppermost patty." title="Add half a boiled egg on top of the uppermost patty."></div><div class="ba"><img loading="lazy" src="assets/bench/op_add_1_a.jpg" alt="before"><i>&rarr;</i><img loading="lazy" src="assets/bench/op_add_1_b.jpg" alt="after: Add a large orange pumpkin with a green stem on the mossy ground beside the shrine&#x27;s arched entrance." title="Add a large orange pumpkin with a green stem on the mossy ground beside the shrine&#x27;s arched entrance."></div><div class="ba"><img loading="lazy" src="assets/bench/op_add_2_a.jpg" alt="before"><i>&rarr;</i><img loading="lazy" src="assets/bench/op_add_2_b.jpg" alt="after: Add a small hourglass with a brown wooden frame and a purple tint to the open area of the shelf top." title="Add a small hourglass with a brown wooden frame and a purple tint to the open area of the shelf top."></div></div><div class="optype"><span class="op op-remove">remove</span><div class="ba"><img loading="lazy" src="assets/bench/op_remove_0_a.jpg" alt="before"><i>&rarr;</i><img loading="lazy" src="assets/bench/op_remove_0_b.jpg" alt="after: Remove the tree farthest from the front door among the trees beside the cabin." title="Remove the tree farthest from the front door among the trees beside the cabin."></div><div class="ba"><img loading="lazy" src="assets/bench/op_remove_1_a.jpg" alt="before"><i>&rarr;</i><img loading="lazy" src="assets/bench/op_remove_1_b.jpg" alt="after: Remove the yellow omelet nigiri wrapped in a strip of dark seaweed from the serving tray." title="Remove the yellow omelet nigiri wrapped in a strip of dark seaweed from the serving tray."></div><div class="ba"><img loading="lazy" src="assets/bench/op_remove_2_a.jpg" alt="before"><i>&rarr;</i><img loading="lazy" src="assets/bench/op_remove_2_b.jpg" alt="after: Remove the knight&#x27;s sword." title="Remove the knight&#x27;s sword."></div></div><div class="optype"><span class="op op-replace">replace</span><div class="ba"><img loading="lazy" src="assets/bench/op_replace_0_a.jpg" alt="before"><i>&rarr;</i><img loading="lazy" src="assets/bench/op_replace_0_b.jpg" alt="after: Replace the cream crackle-glaze soup bowl and its ladle with a plain white footed bowl, standing upright in the same place beside the sushi tray." title="Replace the cream crackle-glaze soup bowl and its ladle with a plain white footed bowl, standing upright in the same place beside the sushi tray."></div><div class="ba"><img loading="lazy" src="assets/bench/op_replace_1_a.jpg" alt="before"><i>&rarr;</i><img loading="lazy" src="assets/bench/op_replace_1_b.jpg" alt="after: Replace the large smoky glass jar topped by a copper funnel with a tall white ceramic jar." title="Replace the large smoky glass jar topped by a copper funnel with a tall white ceramic jar."></div><div class="ba"><img loading="lazy" src="assets/bench/op_replace_2_a.jpg" alt="before"><i>&rarr;</i><img loading="lazy" src="assets/bench/op_replace_2_b.jpg" alt="after: Replace the knight&#x27;s sword with a grey-white sword with a crossguard." title="Replace the knight&#x27;s sword with a grey-white sword with a crossguard."></div></div><div class="optype"><span class="op op-retexture">retexture</span><div class="ba"><img loading="lazy" src="assets/bench/op_retexture_0_a.jpg" alt="before"><i>&rarr;</i><img loading="lazy" src="assets/bench/op_retexture_0_b.jpg" alt="after: Change only the rectangular sushi serving tray to ivory ceramic with flowing dark-blue wave patterns. Preserve every sushi piece, its original food colors and texture details, and all geometry." title="Change only the rectangular sushi serving tray to ivory ceramic with flowing dark-blue wave patterns. Preserve every sushi piece, its original food colors and texture details, and all geometry."></div><div class="ba"><img loading="lazy" src="assets/bench/op_retexture_1_a.jpg" alt="before"><i>&rarr;</i><img loading="lazy" src="assets/bench/op_retexture_1_b.jpg" alt="after: Give the feed roll brushed brass with copper scratches and dark circumferential bands, preserving the original support." title="Give the feed roll brushed brass with copper scratches and dark circumferential bands, preserving the original support."></div><div class="ba"><img loading="lazy" src="assets/bench/op_retexture_2_a.jpg" alt="before"><i>&rarr;</i><img loading="lazy" src="assets/bench/op_retexture_2_b.jpg" alt="after: Change the material of the arched roof of the little yellow cottage to terracotta red clay roof tiles." title="Change the material of the arched roof of the little yellow cottage to terracotta red clay roof tiles."></div></div></div>
+    <h3 class="sub-h reveal">Six kinds of object</h3>
+    <div class="cats reveal"><div class="cat"><div class="cat-grid"><img loading="lazy" src="assets/bench/cat_characters_0.jpg" alt=""><img loading="lazy" src="assets/bench/cat_characters_1.jpg" alt=""><img loading="lazy" src="assets/bench/cat_characters_2.jpg" alt=""><img loading="lazy" src="assets/bench/cat_characters_3.jpg" alt=""></div><b>Characters</b><span>48 objects</span></div><div class="cat"><div class="cat-grid"><img loading="lazy" src="assets/bench/cat_animals-creatures_0.jpg" alt=""><img loading="lazy" src="assets/bench/cat_animals-creatures_1.jpg" alt=""><img loading="lazy" src="assets/bench/cat_animals-creatures_2.jpg" alt=""><img loading="lazy" src="assets/bench/cat_animals-creatures_3.jpg" alt=""></div><b>Animals & creatures</b><span>30 objects</span></div><div class="cat"><div class="cat-grid"><img loading="lazy" src="assets/bench/cat_robots_0.jpg" alt=""><img loading="lazy" src="assets/bench/cat_robots_1.jpg" alt=""><img loading="lazy" src="assets/bench/cat_robots_2.jpg" alt=""><img loading="lazy" src="assets/bench/cat_robots_3.jpg" alt=""></div><b>Robots</b><span>41 objects</span></div><div class="cat"><div class="cat-grid"><img loading="lazy" src="assets/bench/cat_vehicles_0.jpg" alt=""><img loading="lazy" src="assets/bench/cat_vehicles_1.jpg" alt=""><img loading="lazy" src="assets/bench/cat_vehicles_2.jpg" alt=""><img loading="lazy" src="assets/bench/cat_vehicles_3.jpg" alt=""></div><b>Vehicles</b><span>39 objects</span></div><div class="cat"><div class="cat-grid"><img loading="lazy" src="assets/bench/cat_objects_0.jpg" alt=""><img loading="lazy" src="assets/bench/cat_objects_1.jpg" alt=""><img loading="lazy" src="assets/bench/cat_objects_2.jpg" alt=""><img loading="lazy" src="assets/bench/cat_objects_3.jpg" alt=""></div><b>Objects</b><span>61 objects</span></div><div class="cat"><div class="cat-grid"><img loading="lazy" src="assets/bench/cat_small-scenes-structures_0.jpg" alt=""><img loading="lazy" src="assets/bench/cat_small-scenes-structures_1.jpg" alt=""><img loading="lazy" src="assets/bench/cat_small-scenes-structures_2.jpg" alt=""><img loading="lazy" src="assets/bench/cat_small-scenes-structures_3.jpg" alt=""></div><b>Scenes & buildings</b><span>33 objects</span></div></div>
+    <h3 class="sub-h reveal">How a chain is made</h3>
+    <figure class="paper-fig reveal"><img src="assets/figures/pipeline.png" alt="The data engine: a host with named slots and a part library, one turn of the assembly engine, and a chain rebuilt from its logged operations" loading="lazy"></figure>
+  </div>
+</section>
+
+<section id="explorer">
+  <div class="wrap">
+    <div class="kicker reveal">Chains</div>
+    <h2 class="reveal">Follow a chain, turn by turn</h2>
+    <p class="section-intro reveal">Each method keeps editing its own output.</p>
+    <div class="card explorer reveal" id="chain-explorer">
+      <div class="scene-tabs chain-tabs"></div>
+      <div class="turn-bar">
+        <button class="icon-btn turn-prev" title="Previous turn" aria-label="Previous turn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="turn-steps"></div>
+        <button class="icon-btn turn-next" title="Next turn" aria-label="Next turn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+        <button class="icon-btn view-reset" type="button" title="Reset view" aria-label="Reset view" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
+      </div>
+      <p class="turn-instr"><span class="op"></span><span class="txt"></span></p>
+      <p class="instr-legend"><i class="ins-v ins-replace">operation</i><i class="ins-o" style="color:#f2a7c3">object</i><i class="ins-a" style="color:#b9a4f0">attribute</i></p>
+      <div class="method-grid"></div>
+      <p class="explorer-note">Same camera and light for every tile.</p>
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <div class="kicker reveal">Leaderboard</div>
+    <h2 class="reveal">Conventional methods vs LLMs writing code</h2>
+    <div class="lb-legend reveal"><span class="lb-3d">Conventional methods</span><span class="lb-llm">LLMs writing code</span></div>
+    <div class="lb-grid reveal">
+      <div class="lb card"><h3>Follows the instruction</h3><p class="lb-sub">IF, share of the asked change made</p><ol><li class="lb-row lb-llm"><span class="lb-rank">1</span><span class="lb-name">Opus 5.5</span><span class="lb-bar"><i style="width:61.7%"></i></span><span class="lb-val">0.62</span></li><li class="lb-row lb-llm"><span class="lb-rank">2</span><span class="lb-name">Astra</span><span class="lb-bar"><i style="width:52.4%"></i></span><span class="lb-val">0.52</span></li><li class="lb-row lb-llm"><span class="lb-rank">3</span><span class="lb-name">Fable 5.1</span><span class="lb-bar"><i style="width:52.0%"></i></span><span class="lb-val">0.52</span></li><li class="lb-row lb-llm"><span class="lb-rank">4</span><span class="lb-name">Sol 6</span><span class="lb-bar"><i style="width:41.9%"></i></span><span class="lb-val">0.42</span></li><li class="lb-row lb-llm"><span class="lb-rank">5</span><span class="lb-name">DeepSeek V4.1 Flash</span><span class="lb-bar"><i style="width:41.5%"></i></span><span class="lb-val">0.42</span></li><li class="lb-row lb-3d"><span class="lb-rank">6</span><span class="lb-name">VoxHammer</span><span class="lb-bar"><i style="width:36.4%"></i></span><span class="lb-val">0.36</span></li><li class="lb-row lb-3d"><span class="lb-rank">7</span><span class="lb-name">Nano3D</span><span class="lb-bar"><i style="width:34.3%"></i></span><span class="lb-val">0.34</span></li><li class="lb-row lb-llm"><span class="lb-rank">8</span><span class="lb-name">GLM 5.3 Flash</span><span class="lb-bar"><i style="width:26.0%"></i></span><span class="lb-val">0.26</span></li><li class="lb-row lb-3d"><span class="lb-rank">9</span><span class="lb-name">3DEditFormer</span><span class="lb-bar"><i style="width:21.4%"></i></span><span class="lb-val">0.21</span></li><li class="lb-row lb-3d"><span class="lb-rank">10</span><span class="lb-name">PartFlow</span><span class="lb-bar"><i style="width:12.9%"></i></span><span class="lb-val">0.13</span></li></ol></div>
+      <div class="lb card"><h3>Keeps the original</h3><p class="lb-sub">CC<sup>0</sup>, untouched part of the first object kept</p><ol><li class="lb-row lb-llm"><span class="lb-rank">1</span><span class="lb-name">Opus 5.5</span><span class="lb-bar"><i style="width:95.1%"></i></span><span class="lb-val">0.95</span></li><li class="lb-row lb-llm"><span class="lb-rank">2</span><span class="lb-name">Astra</span><span class="lb-bar"><i style="width:94.6%"></i></span><span class="lb-val">0.95</span></li><li class="lb-row lb-llm"><span class="lb-rank">3</span><span class="lb-name">Fable 5.1</span><span class="lb-bar"><i style="width:93.7%"></i></span><span class="lb-val">0.94</span></li><li class="lb-row lb-llm"><span class="lb-rank">4</span><span class="lb-name">Sol 6</span><span class="lb-bar"><i style="width:92.9%"></i></span><span class="lb-val">0.93</span></li><li class="lb-row lb-llm"><span class="lb-rank">5</span><span class="lb-name">DeepSeek V4.1 Flash</span><span class="lb-bar"><i style="width:90.5%"></i></span><span class="lb-val">0.90</span></li><li class="lb-row lb-llm"><span class="lb-rank">6</span><span class="lb-name">GLM 5.3 Flash</span><span class="lb-bar"><i style="width:88.4%"></i></span><span class="lb-val">0.88</span></li><li class="lb-row lb-3d"><span class="lb-rank">7</span><span class="lb-name">Nano3D</span><span class="lb-bar"><i style="width:73.3%"></i></span><span class="lb-val">0.73</span></li><li class="lb-row lb-3d"><span class="lb-rank">8</span><span class="lb-name">PartFlow</span><span class="lb-bar"><i style="width:65.9%"></i></span><span class="lb-val">0.66</span></li><li class="lb-row lb-3d"><span class="lb-rank">9</span><span class="lb-name">3DEditFormer</span><span class="lb-bar"><i style="width:54.9%"></i></span><span class="lb-val">0.55</span></li><li class="lb-row lb-3d"><span class="lb-rank">10</span><span class="lb-name">VoxHammer</span><span class="lb-bar"><i style="width:47.7%"></i></span><span class="lb-val">0.48</span></li></ol></div>
+    </div>
+    <p class="lb-note reveal">55 chains, 416 edits. Every method keeps editing its own output.</p>
+  </div>
+</section>
+
+<section id="bibtex">
+  <div class="wrap">
+    <h2 class="reveal">BibTeX</h2>
+    <div class="bib-card card reveal">
+      <button class="copy-btn" id="copy-bib">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span>Copy</span>
+      </button>
+<pre id="bib-text">@misc{yu2026edithero,
+  title  = {EditHero: A Benchmark for Long-Horizon Part-Level 3D Editing and Vibe Modeling},
+  author = {Yu, Ruihan and Tsai, Yu-Ju and Niu, Muyao and Li, Runyi and Fu, Lian and Liu, Hanqing and Huang, Zheng-Hui and Yu, Yonghao and Kuno, Sho and Yang, Ming-Hsuan and Zhang, Kaipeng and Wang, Zhixiang},
+  year   = {2026}
+}</pre>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a class="lab-foot" href="https://alayalab.ai/" target="_blank" rel="noopener"><img class="flogo" src="assets/figures/alayalab-logo.png" alt=""><p>Alaya Lab</p></a>
+  <p class="fnote">EditHero · A Benchmark for Long-Horizon Part-Level 3D Editing and Vibe Modeling</p>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.3.1/dist/model-viewer.min.js"></script>
+<script src="assets/js/explorer.js"></script>
+<script src="assets/js/wordmark.js"></script>
+</body>
+</html>
