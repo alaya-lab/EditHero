@@ -1,0 +1,883 @@
+[
+ {
+  "slug": "wagon",
+  "chain": "P/48ce0e2f_s1",
+  "title": "Covered wagon",
+  "turns": [
+   {
+    "turn": 1,
+    "op": "replace",
+    "instruction": "Replace the barrel inside the wagon with a compact wooden cargo crate, resting upright on the floor inside the side walls.",
+    "marked": "[v:Replace] the [o:barrel] inside the [o:wagon] with a [a:compact wooden] [o:cargo crate], resting upright on the [o:floor] inside the [o:side walls]."
+   },
+   {
+    "turn": 2,
+    "op": "replace",
+    "instruction": "Replace the original bull-patterned cover with a peaked teal and dark green striped canopy, aligned along the wagon and fitted over the four wooden arch ribs.",
+    "marked": "[v:Replace] the [a:original bull-patterned] [o:cover] with a [a:peaked teal and dark green striped] [o:canopy], aligned along the [o:wagon] and fitted over the [a:four wooden] [o:arch ribs]."
+   },
+   {
+    "turn": 3,
+    "op": "replace",
+    "instruction": "Replace the striped peaked canopy with a gray fabric canopy, aligned along the wagon and fitted over the four wooden arch ribs.",
+    "marked": "[v:Replace] the [a:striped peaked] [o:canopy] with a [a:gray fabric] [o:canopy], aligned along the [o:wagon] and fitted over the [a:four wooden] [o:arch ribs]."
+   },
+   {
+    "turn": 4,
+    "op": "replace",
+    "instruction": "Replace the gray fabric canopy with a weathered beige canvas canopy, aligned along the wagon and fitted over the four wooden arch ribs.",
+    "marked": "[v:Replace] the [a:gray fabric] [o:canopy] with a [a:weathered beige canvas] [o:canopy], aligned along the [o:wagon] and fitted over the [a:four wooden] [o:arch ribs]."
+   },
+   {
+    "turn": 5,
+    "op": "replace",
+    "instruction": "Replace the weathered beige canopy with a pale yellow arched fabric canopy, aligned along the wagon and fitted over the four wooden arch ribs.",
+    "marked": "[v:Replace] the [a:weathered beige] [o:canopy] with a [a:pale yellow arched fabric] [o:canopy], aligned along the [o:wagon] and fitted over the [a:four wooden] [o:arch ribs]."
+   },
+   {
+    "turn": 6,
+    "op": "replace",
+    "instruction": "Replace the wooden cargo crate inside the wagon bed with a science-fiction metal storage box.",
+    "marked": "[v:Replace] the [a:wooden] [o:cargo crate] inside the [o:wagon bed] with a [a:science-fiction metal] [o:storage box]."
+   }
+  ],
+  "methods": [
+   {
+    "key": "gt",
+    "name": "Ground truth",
+    "kind": "ref",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "key": "partflow",
+    "name": "PartFlow",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "key": "nano",
+    "name": "Nano3D",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "key": "3deditformer",
+    "name": "3DEditFormer",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "key": "voxhammer",
+    "name": "VoxHammer",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "key": "astra",
+    "name": "Astra",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "key": "fable",
+    "name": "Fable 5.1",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "key": "opus55",
+    "name": "Opus 5.5",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  ],
+  "view3d": {
+   "target": "0.0037m 0.2940m -0.1217m",
+   "orbit": "-145.00deg 65.00deg 4.6778m",
+   "fov": "39.60deg",
+   "rmin": 1.6372,
+   "rmax": 11.6944
+  }
+ },
+ {
+  "slug": "character",
+  "chain": "X/889310ce_s1",
+  "title": "Character",
+  "turns": [
+   {
+    "turn": 1,
+    "op": "remove",
+    "instruction": "Remove the green cap with the leaf-shaped side flaps.",
+    "marked": "[v:Remove] the [a:green] [o:cap] with the [a:leaf-shaped] [o:side flaps]."
+   },
+   {
+    "turn": 2,
+    "op": "replace",
+    "instruction": "Replace the entire pair of legs wearing orange sandals with legs wearing black thigh-high socks with white stripes near the top.",
+    "marked": "[v:Replace] the [a:entire pair of] [o:legs] wearing [a:orange] [o:sandals] with [o:legs] wearing [a:black thigh-high] [o:socks] with [a:white stripes] near the top."
+   },
+   {
+    "turn": 3,
+    "op": "add",
+    "instruction": "Fit the yellow construction hardhat around the crown of the head, letting the hair meet and emerge below the brim.",
+    "marked": "[v:Fit] the [a:yellow construction] [o:hardhat] around the crown of the [o:head], letting the [o:hair] meet and emerge below the [o:brim]."
+   },
+   {
+    "turn": 4,
+    "op": "retexture",
+    "instruction": "Change the material of the character's arms to red and white candy stripes.",
+    "marked": "[v:Change the material] of the character's [o:arms] to [a:red and white candy stripes]."
+   },
+   {
+    "turn": 5,
+    "op": "retexture",
+    "instruction": "Change the entire pair of legs, including exposed thighs and black socks, to warm honey-oak wood grain with dark knots.",
+    "marked": "[v:Change] the [a:entire pair of] [o:legs], including exposed [o:thighs] and [a:black] [o:socks], to [a:warm honey-oak wood grain with dark knots]."
+   }
+  ],
+  "methods": [
+   {
+    "key": "gt",
+    "name": "Ground truth",
+    "kind": "ref",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "partflow",
+    "name": "PartFlow",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "nano",
+    "name": "Nano3D",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "3deditformer",
+    "name": "3DEditFormer",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "voxhammer",
+    "name": "VoxHammer",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "glm53",
+    "name": "GLM 5.3 Flash",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "deepseek41",
+    "name": "DeepSeek V4.1 Flash",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "sol6",
+    "name": "Sol 6",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "astra",
+    "name": "Astra",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "fable",
+    "name": "Fable 5.1",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "opus55",
+    "name": "Opus 5.5",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "bicycle",
+  "chain": "X/02dcf762_s1",
+  "title": "Bicycle",
+  "turns": [
+   {
+    "turn": 1,
+    "op": "replace",
+    "instruction": "Replace the saddle with a small four-legged wooden seat, aligned with the bike and mounted by its underside on the seat tube.",
+    "marked": "[v:Replace] the [o:saddle] with a [a:small four-legged wooden] [o:seat], aligned with the [o:bike] and mounted by its underside on the [o:seat tube]."
+   },
+   {
+    "turn": 2,
+    "op": "retexture",
+    "instruction": "Refinish the saddle stool in vermilion lacquered wood with gold floral borders and dark red wood grain.",
+    "marked": "[v:Refinish] the [o:saddle stool] in [a:vermilion lacquered wood with gold floral borders and dark red wood grain]."
+   },
+   {
+    "turn": 3,
+    "op": "replace",
+    "instruction": "Replace the front basket with an upright metal medical box, its cross-marked face pointing forward and its back against the steering fork.",
+    "marked": "[v:Replace] the [a:front] [o:basket] with an [a:upright metal] [o:medical box], its [a:cross-marked] [o:face] pointing forward and its [o:back] against the [o:steering fork]."
+   },
+   {
+    "turn": 4,
+    "op": "retexture",
+    "instruction": "Refinish the front medical case in aged ivory enamel with dark green bands, brass latches and a red medical cross.",
+    "marked": "[v:Refinish] the [a:front] [o:medical case] in [a:aged ivory enamel with dark green bands, brass latches and a red medical cross]."
+   },
+   {
+    "turn": 5,
+    "op": "replace",
+    "instruction": "Replace the vermilion lacquered saddle stool with a green mushroom cap with white spots.",
+    "marked": "[v:Replace] the [a:vermilion lacquered] [o:saddle stool] with a [a:green] [o:mushroom cap] with [a:white spots]."
+   }
+  ],
+  "methods": [
+   {
+    "key": "gt",
+    "name": "Ground truth",
+    "kind": "ref",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "partflow",
+    "name": "PartFlow",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "nano",
+    "name": "Nano3D",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "3deditformer",
+    "name": "3DEditFormer",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "voxhammer",
+    "name": "VoxHammer",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "glm53",
+    "name": "GLM 5.3 Flash",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "deepseek41",
+    "name": "DeepSeek V4.1 Flash",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "sol6",
+    "name": "Sol 6",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "astra",
+    "name": "Astra",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "fable",
+    "name": "Fable 5.1",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "opus55",
+    "name": "Opus 5.5",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "saucer",
+  "chain": "G/026fd493_s1",
+  "title": "Flying saucer",
+  "turns": [
+   {
+    "turn": 1,
+    "op": "replace",
+    "instruction": "Replace the transparent dome on top of the flying saucer with a dome-shaped parachute canopy.",
+    "marked": "[v:Replace] the [a:transparent] [o:dome] on top of the [o:flying saucer] with a [a:dome-shaped] [o:parachute canopy]."
+   },
+   {
+    "turn": 2,
+    "op": "remove",
+    "instruction": "Remove the landing legs underneath the saucer.",
+    "marked": "[v:Remove] the [o:landing legs] underneath the [o:saucer]."
+   },
+   {
+    "turn": 3,
+    "op": "replace",
+    "instruction": "Replace the parachute canopy with a transparent cylindrical cover with a brown disc suspended near its top.",
+    "marked": "[v:Replace] the [o:parachute canopy] with a [a:transparent cylindrical] [o:cover] with a [a:brown] [o:disc] suspended near its top."
+   },
+   {
+    "turn": 4,
+    "op": "add",
+    "instruction": "Add a blue gas cylinder on the outer rim of the flying saucer.",
+    "marked": "[v:Add] a [a:blue] [o:gas cylinder] on the outer rim of the [o:flying saucer]."
+   },
+   {
+    "turn": 5,
+    "op": "add",
+    "instruction": "Add a wooden barrel on top of the transparent cylindrical cover.",
+    "marked": "[v:Add] a [a:wooden] [o:barrel] on top of the [a:transparent cylindrical] [o:cover]."
+   }
+  ],
+  "methods": [
+   {
+    "key": "gt",
+    "name": "Ground truth",
+    "kind": "ref",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "partflow",
+    "name": "PartFlow",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "nano",
+    "name": "Nano3D",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "3deditformer",
+    "name": "3DEditFormer",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "voxhammer",
+    "name": "VoxHammer",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "glm53",
+    "name": "GLM 5.3 Flash",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "deepseek41",
+    "name": "DeepSeek V4.1 Flash",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "sol6",
+    "name": "Sol 6",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "astra",
+    "name": "Astra",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "fable",
+    "name": "Fable 5.1",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "opus55",
+    "name": "Opus 5.5",
+    "kind": "code",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "view3d": {
+   "target": "-0.0579m 0.4062m 0.0000m",
+   "orbit": "125.00deg 65.00deg 4.7658m",
+   "fov": "39.60deg",
+   "rmin": 1.668,
+   "rmax": 11.9145
+  }
+ },
+ {
+  "slug": "house",
+  "chain": "A/1a3267df_s0",
+  "title": "House",
+  "turns": [
+   {
+    "turn": 1,
+    "op": "add",
+    "instruction": "Add a wooden barrel with metal hoops on the porch deck, by the entrance of the house.",
+    "marked": "[v:Add] a [a:wooden] [o:barrel] with [a:metal] [o:hoops] on the [o:porch deck], by the [o:entrance] of the [o:house]."
+   },
+   {
+    "turn": 2,
+    "op": "add",
+    "instruction": "Add a black outdoor bar stool with a square seat and four legs on the porch deck, beside the wooden barrel.",
+    "marked": "[v:Add] a [a:black outdoor] [o:bar stool] with a [a:square] [o:seat] and [a:four] [o:legs] on the [o:porch deck], beside the [a:wooden] [o:barrel]."
+   },
+   {
+    "turn": 3,
+    "op": "remove",
+    "instruction": "Remove the wooden barrel with metal hoops from the porch.",
+    "marked": "[v:Remove] the [a:wooden] [o:barrel] with [a:metal] [o:hoops] from the [o:porch]."
+   },
+   {
+    "turn": 4,
+    "op": "add",
+    "instruction": "Add a burlap sack filled with yellow grain on the porch deck by the entrance, beside the black bar stool.",
+    "marked": "[v:Add] a [o:burlap sack] filled with [a:yellow] [o:grain] on the [o:porch deck] by the [o:entrance], beside the [a:black] [o:bar stool]."
+   },
+   {
+    "turn": 5,
+    "op": "remove",
+    "instruction": "Remove the porch canopy of the object.",
+    "marked": "[v:Remove] the [o:porch canopy] of the object."
+   }
+  ],
+  "methods": [
+   {
+    "key": "gt",
+    "name": "Ground truth",
+    "kind": "ref",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "partflow",
+    "name": "PartFlow",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "nano",
+    "name": "Nano3D",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "3deditformer",
+    "name": "3DEditFormer",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "voxhammer",
+    "name": "VoxHammer",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "view3d": {
+   "target": "-0.6358m 0.0018m 0.0000m",
+   "orbit": "-55.00deg 65.00deg 2.5652m",
+   "fov": "39.60deg",
+   "rmin": 0.8978,
+   "rmax": 6.413
+  }
+ },
+ {
+  "slug": "table",
+  "chain": "X/3b3e4d1a_s1",
+  "title": "Table setting",
+  "turns": [
+   {
+    "turn": 1,
+    "op": "retexture",
+    "instruction": "Change the material of the dark red tray holding the sushi to glazed white porcelain with cobalt blue floral patterns.",
+    "marked": "[v:Change the material] of the [a:dark red] [o:tray] holding the [o:sushi] to [a:glazed white porcelain with cobalt blue floral patterns]."
+   },
+   {
+    "turn": 2,
+    "op": "retexture",
+    "instruction": "Change the material of the dark red soup bowl and its ladle to hammered copper with green verdigris patina.",
+    "marked": "[v:Change the material] of the [a:dark red] [o:soup bowl] and its [o:ladle] to [a:hammered copper with green verdigris patina]."
+   },
+   {
+    "turn": 3,
+    "op": "retexture",
+    "instruction": "Change the material of the copper soup bowl to glossy bright red lacquer.",
+    "marked": "[v:Change the material] of the [a:copper] [o:soup bowl] to [a:glossy bright red lacquer]."
+   },
+   {
+    "turn": 4,
+    "op": "replace",
+    "instruction": "Replace the blue and white porcelain sushi tray and the sushi on it with an upright wooden compartment tray, its open compartments facing up and its base resting on the same ground.",
+    "marked": "[v:Replace] the [a:blue and white porcelain] [o:sushi tray] and the [o:sushi] on it with an [a:upright wooden] [o:compartment tray], its [a:open] [o:compartments] facing up and its [o:base] resting on the same ground."
+   },
+   {
+    "turn": 5,
+    "op": "retexture",
+    "instruction": "Change the material of the wooden compartment tray to polished grey marble with white veins.",
+    "marked": "[v:Change the material] of the [a:wooden] [o:compartment tray] to [a:polished grey marble with white veins]."
+   }
+  ],
+  "methods": [
+   {
+    "key": "gt",
+    "name": "Ground truth",
+    "kind": "ref",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "partflow",
+    "name": "PartFlow",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "nano",
+    "name": "Nano3D",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "3deditformer",
+    "name": "3DEditFormer",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "key": "voxhammer",
+    "name": "VoxHammer",
+    "kind": "gen",
+    "turns": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  ]
+ }
+]
